@@ -1,0 +1,27 @@
+//
+//  QLEmotionCfg.pch
+//  QLEmotion
+//
+//  Created by Shrek on 15/5/12.
+//  Copyright (c) 2015年 Personal. All rights reserved.
+//
+
+#ifndef QLEmotion_QLEmotionCfg_pch
+#define QLEmotion_QLEmotionCfg_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "QLEmotionConst.h"
+
+#define QLColorWithRGB(redValue, greenValue, blueValue) ([UIColor colorWithRed:((redValue)/255.0) green:((greenValue)/255.0) blue:((blueValue)/255.0) alpha:1])
+#define QLColorRandom QLColorWithRGB(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+/** QLDEBUG Print */
+#ifdef DEBUG
+#define QLLog(FORMAT, ...) fprintf(stderr,"M:%s|L:%d :%s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define QLLog(FORMAT, ...)
+#endif
+
+#endif
